@@ -1,0 +1,61 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extName__",
+  "version": "1.0.0.0",
+  "description": "__MSG_extDesc__",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.acfun.cn/*",
+        "*://*.hapame.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "analytic_fixer.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://*.acfun.cn/v/*",
+        "*://*.acfun.cn/bangumi/*",
+        "*://*.hapame.com/video/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "dom_gen.js",
+        "resizeSensor.js",
+        "hls.light.min.js",
+        "hlsjsMediaInfo.min.js",
+        "jquery-3.3.1.min.js",
+        "google-style-loading.min.js",
+        "CommentCoreLibrary.min.js",
+        "biliplus_shield.min.js",
+        "ABPlayer.min.js",
+        "acfun_html5.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "*://*/*",
+    "storage",
+    "clipboardWrite",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "applications": {
+    "gecko": {
+      "id": "acfun-player@estertion",
+      "update_url": "https://estertion.github.io/AcFun-HTML5-Player/firefox_ext_update.json",
+      "strict_min_version": "57.0"
+    }
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "default_locale": "en",
+  "web_accessible_resources": [
+    "ABPlayer.css"
+  ]
+}
